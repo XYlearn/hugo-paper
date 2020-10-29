@@ -1,6 +1,42 @@
 {{- partial "header.html" . }}
 
-{{- $scope := .Site }}
+{{- $scope := . }}
+{{- if .IsHome }}
+{{- $scope = .Site }} <!-- Use site scope. This lists all pages on homepage. -->
+  {{- if (in .Site.Home .Site.Title) }} <!-- If there is no index page (_index.md, _index.html etc), .Title will be set.-->
+    <!-- If so, display the information we have. -->
+
+    {{- if (or (or .Title  (eq .Site.Params.hidetitle false)) .Site.Params.subtitle) }} <!-- If anything here is displayed -->
+      <header class="page-header">
+
+      {{- if (and .Title (eq .Site.Params.showtitle true)) }}<h1>{{ .Title }}</h1>{{ end }} <!-- Show title if set and not disabled. -->
+      {{- if (and .Site.Params.subtitle (ne .Site.Params.hidesubtitle true)) }}<p>{{ .Site.Params.subtitle }}</p>{{ end }} <!-- Show subtitle if set and not disabled. -->
+
+      </header>
+    {{ end }}
+
+  {{- else }}
+    <!-- Else, display the index file. -->
+    <header class="page-header">
+
+    <!-- jc: I didn't find a better way on how I would get the path, other than trimming. :/ -->
+    {{ (readFile (strings.TrimPrefix "Page(" (strings.TrimSuffix ")" .Site.Home))) | markdownify }}
+
+    </header>
+  {{- end }}
+  {{- else }} <!-- For other list pages, always show title(s) if they exist. -->
+  {{- if (or .Title .Params.subtitle) }}
+    <header class="page-header">
+      {{- if .Title }}
+        <h1>{{ .Title }}</h1>
+      {{ end }}
+      {{- if .Params.subtitle }}
+        <p>{{ .Params.subtitle }}</p>
+      {{- end }}
+    </header>
+  {{- end }}
+{{- end }}
+
 {{- if .Title }}
 <header class="page-header"><h1>{{ .Title }}</h1></header>{{ $scope = . }}
 {{ end }}
@@ -23,7 +59,7 @@
    <p>{{ .Summary | plainify | htmlUnescape }}...</p>
   </section>
   <footer class="entry-footer">
-    <time>{{ .Date.Format "January 2, 2006" }}</time>
+    <time>{{ .Date.Format "2006-01-02" }}</time>
   </footer>
   <a class="entry-link" href="{{ .Permalink }}"></a>
 </article>
