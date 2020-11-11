@@ -7,20 +7,24 @@
       {{- if or .Params.Author .Site.Author.name }}
       {{- .Params.Author | default .Site.Author.name }} · {{ end }}
       {{- .Date.Format "2006-01-02" -}}
+      {{- if .Params.tags }}
+        <ul class="post-tags">
+        {{- range .Params.tags }}
+        {{- $href := print (absURL "tags/") (urlize .) }}
+        <li><a href="{{ $href }}">{{ . }}</a></li>
+        {{- end }}
+        </ul>
+      {{- end }}    
     </div>
   </header>
-  <div class="post-content">{{ .Content }}</div>
-  {{- if .Params.tags }}
+  <div class="post-toc">
+    {{ .TableOfContents }}
+  </div>
+  <div class="post-content">
+    {{ .Content }}
+  </div>
   <footer class="post-footer">
-    <ul class="post-tags">
-      {{- range .Params.tags }}
-      {{- $href := print (absURL "tags/") (urlize .) }}
-      <li><a href="{{ $href }}">{{ . }}</a></li>
-      {{- end }}
-    </ul>
   </footer>
-  {{- end }}
-  <!-- Comments area start -->
   {{- if not (eq .Params.comments false) }}
   {{- if .Site.DisqusShortname }}
   <div id="disqus_thread"></div>
