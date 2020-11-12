@@ -47,7 +47,8 @@
 </article>
 <!-- tocbot options -->
 <script type="text/javascript">
-  tocbot.init({
+  if (!/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) { //移动端
+    tocbot.init({
       // Where to render the table of contents.
       tocSelector: '.post-toc',
       // Where to grab the headings to build the table of contents.
@@ -59,7 +60,7 @@
       positionFixedClass: 'is-position-fixed',
       fixedSidebarOffset: 'auto',
       scrollSmooth: true,
-  });
-  tocbot.refresh();
+    });
+  }
 </script>
 {{- partial "footer.html" . }}
