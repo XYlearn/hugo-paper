@@ -13,8 +13,8 @@
   --content-gap: 40px;
   --nav-width: 1024px;
   --main-width: 720px;
-  --header-height: 60px;
-  --footer-height: 60px;
+  --header-height: 48px;
+  --footer-height: 48px;
   --radius: 8px;
 
   --theme: #fff;
@@ -293,6 +293,13 @@ img {
 .post-meta {
   color: var(--secondary);
   font-size: 14px;
+  margin: .5em .5em;
+}
+.post-meta-divider {
+  margin: 0 .5em;
+}
+.post-meta-tags {
+  margin-top: .5em;
 }
 .post-content {
   color: var(--content);
@@ -512,6 +519,31 @@ img {
 .footer a:hover {
   color: var(--primary);
   border-bottom: 1px solid var(--primary);
+}
+/* fa icons
+-------------------------------------------------- */
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  background: #262a30;
+  color: #fff;
+}
+.fa-calendar-o::before {
+  content: "\f133";
+}
+.fa-calendar-check-o::before {
+  content: "\f274";
+}
+.fa-file-word-o::before {
+  content: "\f1c2";
+}
+.fa-eye:before {
+  content: "\f06e";
 }
 /* TOC
 -------------------------------------------------- */

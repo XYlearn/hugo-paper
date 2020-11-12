@@ -1,0 +1,29 @@
+<span class="post-meta-author">
+  {{- if or .Params.Author .Site.Author.name }}
+    {{- .Params.Author | default .Site.Author.name }}
+    <span class="post-meta-divider">·</span>
+  {{ end }}
+</span>
+<span class="post-meta-date">
+  <span class="post-meta-date-pub">
+    <i class="fa fa-calendar-o"></i>
+    <time>{{- .PublishDate.Format "2006-01-02 15:04" -}}</time>
+  </span>
+  <span class="post-meta-divider">·</span>
+  <span class="post-meta-date-pub">
+    <i class="fa fa-calendar-check-o"></i>
+    <time>{{- .Lastmod.Format "2006-01-02 15:04" -}}</time>
+  </span>
+</span>
+<span class="post-meta-divider">·</span>
+{{/*  Words Count  */}}
+<span class="post-meta-wc">
+  <i class="fa fa-file-word-o"></i>
+  <span>{{ .WordCount }}</span>
+</span>
+<span class="post-meta-divider">·</span>
+{{/*  Reading Count  */}}
+<span class="post-meta-rc">
+  <i class="fa fa-eye"></i>
+  <span>{{ .ReadingTime }} </span>
+</span>
