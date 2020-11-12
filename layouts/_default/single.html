@@ -1,5 +1,5 @@
 {{- partial "header.html" . }}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
@@ -14,13 +14,11 @@
         <li><a href="{{ $href }}">{{ . }}</a></li>
         {{- end }}
         </ul>
-      {{- end }}    
+      {{- end }}
     </div>
   </header>
-  <div class="post-toc">
-    {{ .TableOfContents }}
-  </div>
-  <div class="post-content">
+  <div class="post-toc"></div>
+  <div class="post-content article-post">
     {{ .Content }}
   </div>
   <footer class="post-footer">
@@ -45,5 +43,21 @@
   {{- end }}
   {{- end }}
 </article>
-
+<!-- tocbot options -->
+<script type="text/javascript">
+  tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '.post-toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: '.post-content',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h1, h2, h3, h4',
+      
+      positionFixedSelector: '.post-toc',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+      scrollSmooth: true,
+  });
+  tocbot.refresh();
+</script>
 {{- partial "footer.html" . }}
