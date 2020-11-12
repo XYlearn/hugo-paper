@@ -12,7 +12,7 @@
   --gap: 24px;
   --content-gap: 40px;
   --nav-width: 1024px;
-  --main-width: 640px;
+  --main-width: 720px;
   --header-height: 60px;
   --footer-height: 60px;
   --radius: 8px;
@@ -516,7 +516,7 @@ img {
 /* TOC
 -------------------------------------------------- */
 .post-toc {
-  width: calc((100% - var(--nav-width)) / 2);
+  width: auto;
   
   font-size: 18px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -525,7 +525,7 @@ img {
   z-index: 98;
   background-color: rgba(255,255,255,0);
   transform: translateX(0);
-  right: calc((100% - var(--nav-width)) / 2 - var(--content-gap) * 2);
+  right: calc((100% - var(--nav-width)) / 2 - var(--content-gap) * 2 - var(--gap));
   position: fixed !important;
   /* top:480px; */
   position: absolute;
@@ -533,7 +533,7 @@ img {
   padding-bottom: 10px;
   padding-left: 32px;
 }
-.toc-link:hover,
+.toc-link:hover
 .toc-link:focus {
   background-color: #5b5d67;
 }
