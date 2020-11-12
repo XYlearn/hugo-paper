@@ -354,7 +354,12 @@ img {
 .post-content ul,
 .post-content ol,
 .post-content dl {
-  margin-bottom: var(--content-gap);
+  margin-bottom: var(--gap);
+}
+.post-content p {
+  text-indent: 2em;
+  margin-bottom: 0.8em;
+  margin-top: 0.8em;
 }
 .post-content ul,
 .post-content ol {
@@ -439,7 +444,6 @@ img {
 .post-content .highlight span {
   background: transparent !important;
 }
-
 .post-content code {
   margin-left: 4px;
   margin-right: 4px;
