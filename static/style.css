@@ -533,9 +533,9 @@ img {
   padding-bottom: 10px;
   padding-left: 32px;
 }
-.post-toc:hover,
-.post-toc:focus {
-  
+.toc-link:hover,
+.toc-link:focus {
+  background-color: #5b5d67;
 }
 .is-position-fixed{
   position: fixed;
