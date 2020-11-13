@@ -425,10 +425,11 @@ img {
   margin-top: 0;
 }
 .copy-button-wrap {
+  float: right;
   background-color: var(--theme);
 }
 .copy-button {
-  width: 64px;
+  width: 32px;
   color: #272822;
   background-color: #6a6b6e;
   border: 1px solid;
@@ -438,9 +439,10 @@ img {
   display: block;
   margin-left: auto;
   margin-right: 0;
-
+  
+  text-align: center;
   margin-bottom: -2px;
-  padding: 3px 8px;
+  padding: 3px 3px;
   font-size: 0.8em;
 }
 .copy-button:hover {
@@ -454,7 +456,6 @@ img {
   background-color: #E6E6E6;
   outline: 0;
 }
-
 .copy-button:active {
   background-color: #D9D9D9;
 }
