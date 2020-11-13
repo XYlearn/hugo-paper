@@ -422,23 +422,51 @@ img {
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
+  margin-top: 0;
 }
-/* table */
-.post-content .highlighttable {
-  table-layout: fixed;
+.copy-button-wrap {
+  background-color: var(--theme);
 }
-.post-content .highlighttable td:first-child {
-  width: 40px;
+.copy-button {
+  width: 64px;
+  color: #272822;
+  background-color: #6a6b6e;
+  border: 1px solid;
+  border-radius: 3px 3px 0px 0px;
+
+  /* right-align */
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+
+  margin-bottom: -2px;
+  padding: 3px 8px;
+  font-size: 0.8em;
 }
-.post-content .highlighttable td .linenodiv {
-  padding-right: 0 !important;
+.copy-button:hover {
+  cursor: pointer;
+  background-color: #F2F2F2;
 }
-.post-content .highlighttable td .linenodiv pre,
-.post-content .highlighttable td .highlight {
-  margin-bottom: 0;
+.copy-button:focus {
+  /* Avoid an ugly focus outline on click in Chrome,
+     but darken the button for accessibility.
+     See https://stackoverflow.com/a/25298082/1481479 */
+  background-color: #E6E6E6;
+  outline: 0;
 }
-.post-content .highlighttable td .highlight pre code::-webkit-scrollbar {
-  display: none;
+
+.copy-button:active {
+  background-color: #D9D9D9;
+}
+/* lineNumbersInTable not supported yet*/
+/* highlight lineno */
+.highlight .ln {
+  padding-right: 12px;
+  -webkit-user-select: none; /* Safari */
+  -webkit-touch-callout: none;
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  -moz-user-select: none; /* Mozilla */
+  user-select: none; /* Standard syntax */
 }
 /* inline */
 .post-content .highlight span {
